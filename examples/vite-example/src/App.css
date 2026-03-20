@@ -1,0 +1,43 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.demo-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  text-align: left;
+}
+
+section {
+  padding: 1.5rem;
+  background: #242424;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.secure-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 4px;
+}
+
+.badge {
+  font-size: 0.7rem;
+  background: #10b981;
+  color: white;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}

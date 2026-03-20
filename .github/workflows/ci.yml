@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Library Cache
+        run: npm install
+
+      - name: Build Library
+        run: npm run build
+
+      - name: Run Library Tests
+        run: npm test
+
+      - name: Build Next.js Example
+        run: |
+          cd examples/nextjs-example
+          npm install
+          npm run build
+
+      - name: Build Vite Example
+        run: |
+          cd examples/vite-example
+          npm install
+          npm run build
