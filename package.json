@@ -1,6 +1,6 @@
 {
   "name": "@thinkgrid/react-local-fetch",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Resilient, encrypted, local-first fetching for React and Next.js using IndexedDB.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
