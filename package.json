@@ -1,6 +1,6 @@
 {
   "name": "@thinkgrid/react-local-fetch",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Resilient, encrypted, local-first fetching for React and Next.js using IndexedDB.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -16,13 +16,27 @@
     "test": "vitest",
     "lint": "tsc --noEmit"
   },
+  "keywords": [
+    "react",
+    "nextjs",
+    "swr",
+    "indexeddb",
+    "local-first",
+    "encryption",
+    "aes-gcm",
+    "data-fetching",
+    "caching",
+    "offline-first",
+    "react-hooks",
+    "crypto",
+    "secure-storage",
+    "thinkgrid"
+  ],
   "peerDependencies": {
     "react": ">=16.8",
     "react-dom": ">=16.8"
   },
-  "dependencies": {
-    "idb-keyval": "^6.2.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",

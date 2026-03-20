@@ -1,15 +1,22 @@
 # @thinkgrid/react-local-fetch
 
-A lightweight, resilient, and secure data fetching layer for React and Next.js. It implements a **Hydrate-and-Sync (SWR)** pattern using **IndexedDB** for persistence and the **Web Crypto API** for optional hardware-accelerated encryption.
+[![CI](https://github.com/thinkgrid-labs/react-local-fetch/actions/workflows/ci.yml/badge.svg)](https://github.com/thinkgrid-labs/react-local-fetch/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/@thinkgrid/react-local-fetch.svg)](https://www.npmjs.com/package/@thinkgrid/react-local-fetch)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 🚀 Key Features
+**Ultra-lightweight, resilient, and secure data fetching for React and Next.js.**
 
-- **Instant UI**: Returns cached data immediately while syncing with the API in the background.
-- **Hardware Encryption**: Optional AES-GCM 256-bit encryption for sensitive local data.
-- **Version-based Invalidation**: Force-clear stale cache when your data schema changes.
-- **Next.js Optimized**: Automatically bypasses cache on the server to prevent hydration mismatches and build errors.
-- **Resilient**: Gracefully falls back to stale data if the network is down or the API returns an error.
-- **Tiny**: < 5KB bundled with zero external dependencies (aside from `idb-keyval`).
+`react-local-fetch` is a **zero-dependency** library that implements a powerful **Hydrate-and-Sync (SWR)** pattern. It uses **native IndexedDB** for persistent local caching and the **Web Crypto API** for optional, high-performance AES-GCM 256-bit encryption. Perfect for building **offline-first**, **local-first**, and privacy-conscious web applications.
+
+## ✨ Why react-local-fetch?
+
+- **⚡ Zero Latency**: Return cached data instantly while refreshing from your API in the background.
+- **🛡️ Secure by Design**: Optional hardware-accelerated encryption for sensitive local data.
+- **📦 Zero Dependencies**: Pure ESM/CJS build using only browser native APIs.
+- **🔄 Smart Invalidation**: Version-based cache busting for schema changes and deployments.
+- **🌐 Next.js & SSR Ready**: Automatically bypasses client-side storage during server rendering.
+- **🔌 Resilient**: Gracefully returns stale data if the network is down or the API fails.
+- **🚀 Tiny Footprint**: < 4KB gzipped.
 
 ## 📦 Installation
 
