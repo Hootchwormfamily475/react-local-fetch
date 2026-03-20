@@ -1,12 +1,41 @@
-import { get, set, del, clear } from 'idb-keyval';
 import { CacheEntry } from './types';
+
+const DB_NAME = 'react-local-fetch';
+const STORE_NAME = 'keyval';
+const DB_VERSION = 1;
+
+/**
+ * Promise wrapper for IndexedDB.
+ */
+function getDB(): Promise<IDBDatabase> {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open(DB_NAME, DB_VERSION);
+
+    request.onupgradeneeded = () => {
+      const db = request.result;
+      if (!db.objectStoreNames.contains(STORE_NAME)) {
+        db.createObjectStore(STORE_NAME);
+      }
+    };
+
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+}
 
 /**
  * Saves data to IndexedDB.
  */
 export async function saveToStorage<T>(key: string, entry: CacheEntry<T>): Promise<void> {
   if (typeof window === 'undefined') return;
-  await set(`rlf_${key}`, entry);
+  const db = await getDB();
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction(STORE_NAME, 'readwrite');
+    const store = transaction.objectStore(STORE_NAME);
+    const request = store.put(entry, `rlf_${key}`);
+    request.onsuccess = () => resolve();
+    request.onerror = () => reject(request.error);
+  });
 }
 
 /**
@@ -14,7 +43,14 @@ export async function saveToStorage<T>(key: string, entry: CacheEntry<T>): Promi
  */
 export async function getFromStorage<T>(key: string): Promise<CacheEntry<T> | undefined> {
   if (typeof window === 'undefined') return undefined;
-  return await get(`rlf_${key}`);
+  const db = await getDB();
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction(STORE_NAME, 'readonly');
+    const store = transaction.objectStore(STORE_NAME);
+    const request = store.get(`rlf_${key}`);
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
 }
 
 /**
@@ -22,7 +58,14 @@ export async function getFromStorage<T>(key: string): Promise<CacheEntry<T> | un
  */
 export async function removeFromStorage(key: string): Promise<void> {
   if (typeof window === 'undefined') return;
-  await del(`rlf_${key}`);
+  const db = await getDB();
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction(STORE_NAME, 'readwrite');
+    const store = transaction.objectStore(STORE_NAME);
+    const request = store.delete(`rlf_${key}`);
+    request.onsuccess = () => resolve();
+    request.onerror = () => reject(request.error);
+  });
 }
 
 /**
@@ -30,7 +73,12 @@ export async function removeFromStorage(key: string): Promise<void> {
  */
 export async function clearAllStorage(): Promise<void> {
   if (typeof window === 'undefined') return;
-  // This is a bit aggressive, but we could filter keys if needed.
-  // For now, let's use a simple clear or filtered clear.
-  await clear();
+  const db = await getDB();
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction(STORE_NAME, 'readwrite');
+    const store = transaction.objectStore(STORE_NAME);
+    const request = store.clear();
+    request.onsuccess = () => resolve();
+    request.onerror = () => reject(request.error);
+  });
 }

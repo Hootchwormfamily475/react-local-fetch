@@ -1,4 +1,4 @@
-import { useLocalFetch, localFetch } from 'react-local-fetch'
+import { useLocalFetch, localFetch } from '@thinkgrid/react-local-fetch'
 import { useQuery } from '@tanstack/react-query'
 import './App.css'
 
