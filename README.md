@@ -115,7 +115,7 @@ await clearAllStorage();
 
 ## 👥 Contributors
 
-- **Dennis P.** ([dennis@thinkgrid.dev](mailto:dennis@thinkgrid.dev)) 
+- **Dennis P.** ([dennis@thinkgrid.dev](mailto:dennis@thinkgrid.dev))
 
 ## 🤝 Contributing
 
